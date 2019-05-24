@@ -12,15 +12,15 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/main_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title"
+        android:text="@string/main_title"
         android:textSize="48sp"
         android:gravity="center"
         android:textColor="@color/white"
-        android:paddingTop="20dp"
-        android:layout_marginBottom="25dp"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="10dp"
         android:textStyle="bold|italic" />
 
     <EditText
@@ -30,8 +30,8 @@
         android:inputType="text"
         android:textSize="32sp"
         android:background="@drawable/rounded_corner_white_background"
-        android:layout_marginBottom="25dp"
-        android:layout_below="@id/title"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/main_header"
         android:hint="@string/search_text_placeholder" />
 
     <Spinner
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/search_bar"
         android:background="@drawable/rounded_corner_white_background"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="10dp"
         android:hint="@string/filter_text_placeholder"/>
 
     <Spinner
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/filter_drop_down_menu"
         android:background="@drawable/rounded_corner_white_background"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="10dp"
         android:hint="@string/format_text_placeholder"/>
 
     <Spinner
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/format_drop_down_menu"
         android:background="@drawable/rounded_corner_white_background"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="10dp"
         android:hint="@string/sort_by_text_placeholder"/>
 
     <Button
