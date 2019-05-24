@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LibraryGenesis</string>
+    <string name="title">Library Genesis</string>
+    <string name="search_text_placeholder">search for a book</string>
+    <string name="filter_text_placeholder">filter by</string>
+    <string name="format_text_placeholder">select format</string>
+    <string name="sort_by_text_placeholder">sort by</string>
+    <string name="search">search</string>
+    <string name="boom">Boom Homie!!!</string>
 </resources>
