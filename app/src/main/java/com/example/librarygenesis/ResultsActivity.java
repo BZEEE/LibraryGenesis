@@ -1,33 +1,86 @@
 package com.example.librarygenesis;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import com.example.librarygenesis.SearchResultsAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class ResultsActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+
+    ListView resultsList;
+    String bookTitles[];
+    String bookURLs[];
+    int bookImages[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-//        recyclerView = findViewById(R.id.results_recycler_view);
+        // get intent from main activity that opened up this activity
+        Intent intent = new Intent();
+        // retrieve all information from intent and search results
+        // place into bookTitles[]
+        // place into bookURLs[]
+        // place into bookImages[]
+
+//        resultsList = findViewById(R.id.searchResultsListView);
 //
-//        // use this setting to improve performance if you know that changes
-//        // in content do not change the layout size of the RecyclerView
-//        recyclerView.setHasFixedSize(true);
+//        // create an adapter class that converts search information to list items
+//        ResultsAdapter adapter = new ResultsAdapter(this, bookTitles, bookURLs, bookImages);
+//        resultsList.setAdapter(adapter);
 //
-//        // use a linear layout manager
-//        layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        // specify an adapter (see also next example)
-//        mAdapter = new SearchResultsAdapter(myDataset);
-//        recyclerView.setAdapter(mAdapter);
+//        // now set item click on list
+//        resultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                if (position == 0) {
+//                    // selected first link on the page, so got to the URL
+//                }
+//            }
+//        });
+
+
+    }
+
+    class ResultsAdapter extends ArrayAdapter<String> {
+        Context context;
+        String bookTitle[];
+        String bookURL[];
+        int bookImages[];
+
+        ResultsAdapter(Context c, String title[], String URL[], int images[]) {
+            super(c, R.layout.row, R.id.bookTitle, title);
+            this.context = c;
+            this.bookTitle = title;
+            this.bookURL = URL;
+            this.bookImages = images;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View row = layoutInflater.inflate(R.layout.row, parent, false);
+            ImageView images = row.findViewById(R.id.rowImage);
+            TextView title = row.findViewById(R.id.bookTitle);
+            TextView URLLink = row.findViewById(R.id.URLLink);
+
+            images.setImageResource(bookImages[position]);
+            title.setText(bookTitle[position]);
+            URLLink.setText(bookURL[position]);
+
+            return row;
+        }
     }
 }
